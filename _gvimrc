@@ -1,0 +1,6 @@
+set background=dark "背景色：黒
+set transparency=17 "背景透明度
+set lines=200 columns=200 "表示サイズ
+set guioptions-=T
+set guifont=Monaco:h10.7 " フォント
+set mouse=a "全モードマウス使用可能
