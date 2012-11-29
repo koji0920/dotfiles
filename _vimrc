@@ -3,7 +3,6 @@
  set nocompatible " Vi互換モードをオフ（Vimの拡張機能を有効）
  filetype indent plugin on "ファイルタイプを判別し、ファイルタイププラグインを有効にする
  syntax on " 色づけをオン
- call pathogen#runtime_append_all_bundles() "ディレクトリ管理
  colorscheme callisto "カラースキーマ設定
  let g:user_zen_expandabbr_key = '<c-z>' "Zen coding ショートカット
  let file_name = expand("%") "ナードツリー自動よみこみ
@@ -26,6 +25,20 @@
  endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
+"vundleでPluginを管理
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/vimfiles/        "vundleのディレクトリ
+call vundle#rc()
+Bundle 'Shougo/unite.vim'
+Bundle 'html5.vim'
+Bundle 'ZenCoding.vim'
+Bundle 'surround.vim'
+Bundle 'AutoComplPop'
+Bundle 'css3-syntax-plus'
+Bundle 'The-NERD-tree'
+filetype plugin indent on     " required!
 
  "------------------------------------------------------------
  " 推奨するオプション
@@ -62,6 +75,9 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
  autocmd BufWritePre * :%s/\s\+$//ge " 保存時に行末の空白を除去する
  set nobackup "バックアップを作らいない
+ "分割でファイルを開く位置
+ set splitright
+ set splitbelow
 
  "------------------------------------------------------------
  " インデント関連のオプション"
