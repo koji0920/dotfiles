@@ -4,6 +4,9 @@
  filetype indent plugin on "ファイルタイプを判別し、ファイルタイププラグインを有効にする
  syntax on " 色づけをオン
  colorscheme callisto "カラースキーマ設定
+
+ "------------------------------------------------------------
+ "Plugin Setting
  let g:user_zen_expandabbr_key = '<c-z>' "Zen coding ショートカット
  let file_name = expand("%") "ナードツリー自動よみこみ
  if has('vim_starting') &&  file_name == ""
@@ -32,13 +35,33 @@ filetype off
 set rtp+=~/.vim/vimfiles/        "vundleのディレクトリ
 call vundle#rc()
 Bundle 'Shougo/unite.vim'
-Bundle 'html5.vim'
 Bundle 'ZenCoding.vim'
 Bundle 'surround.vim'
 Bundle 'AutoComplPop'
-Bundle 'css3-syntax-plus'
 Bundle 'The-NERD-tree'
+Bundle 'css3-syntax-plus'
+Bundle 'browsereload-mac.vim'
+Bundle 'open-browser.vim'
 filetype plugin indent on     " required!
+
+ "browser aoutload -----------------------
+let g:returnApp = "MacVim"
+nnoremap <Space>bc :ChromeReloadStart<CR>
+nnoremap <Space>bC :ChromeReloadStop<CR>
+nnoremap <Space>bf :FirefoxReloadStart<CR>
+nnoremap <Space>bF :FirefoxReloadStop<CR>
+nnoremap <Space>bs :SafariReloadStart<CR>
+nnoremap <Space>bS :SafariReloadStop<CR>
+nnoremap <Space>bo :OperaReloadStart<CR>
+nnoremap <Space>bO :OperaReloadStop<CR>
+nnoremap <Space>ba :AllBrowserReloadStart<CR>
+nnoremap <Space>bA :AllBrowserReloadStop<CR>
+"openbrowser
+" カーソル下のURLをブラウザで開く
+nnoremap <Leader>o <Plug>(openbrowser-open)
+vmap <Leader>o <Plug>(openbrowser-open)
+" ググる
+nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 
  "------------------------------------------------------------
  " 推奨するオプション
@@ -78,6 +101,7 @@ filetype plugin indent on     " required!
  "分割でファイルを開く位置
  set splitright
  set splitbelow
+noremap ,f :silent ! start Firefox.app %<CR>
 
  "------------------------------------------------------------
  " インデント関連のオプション"
@@ -103,3 +127,4 @@ filetype plugin indent on     " required!
 
 
  "------------------------------------------------------------
+
