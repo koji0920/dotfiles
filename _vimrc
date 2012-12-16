@@ -62,6 +62,9 @@ nnoremap <Leader>o <Plug>(openbrowser-open)
 vmap <Leader>o <Plug>(openbrowser-open)
 " ググる
 nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
+" 編集中ファイルを開く
+nnoremap ,c :!chrome %<CR>
+nnoremap ,bc :silent !start firefox %<CR>
 
  "------------------------------------------------------------
  " 推奨するオプション
@@ -99,8 +102,8 @@ nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
  autocmd BufWritePre * :%s/\s\+$//ge " 保存時に行末の空白を除去する
  set nobackup "バックアップを作らいない
  "分割でファイルを開く位置
- set splitright
- set splitbelow
+ "set splitright
+ ""set splitbelow
 noremap ,f :silent ! start Firefox.app %<CR>
 
  "------------------------------------------------------------
