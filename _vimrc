@@ -7,7 +7,7 @@
 
  "------------------------------------------------------------
  "Plugin Setting
- let g:user_zen_expandabbr_key = '<c-z>' "Zen coding ショートカット
+ let g:user_zen_expandabbr_key = '<c-,>' "Zen coding ショートカット
  let file_name = expand("%") "ナードツリー自動よみこみ
  if has('vim_starting') &&  file_name == ""
    autocmd VimEnter * NERDTree ./
@@ -103,8 +103,7 @@ nnoremap ,bc :silent !start firefox %<CR>
  set nobackup "バックアップを作らいない
  "分割でファイルを開く位置
  "set splitright
- ""set splitbelow
-noremap ,f :silent ! start Firefox.app %<CR>
+ "set splitbelow
 
  "------------------------------------------------------------
  " インデント関連のオプション"
@@ -119,6 +118,9 @@ noremap ,f :silent ! start Firefox.app %<CR>
  "set tabstop=2
  set list
  set listchars=tab:»»,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+ " visual モードで連続して、インデント出来るように設定
+ vnoremap <silent> > >gv
+ vnoremap <silent> < <gv
 
  "------------------------------------------------------------
  " マッピング
