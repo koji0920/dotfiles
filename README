@@ -1,2 +1,4 @@
-test test test
+koji's vim files
 
+#vim setting download
+git clone git@github.com:koji0920/dotfiles.git
