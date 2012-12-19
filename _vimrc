@@ -7,7 +7,7 @@
 
  "------------------------------------------------------------
  "Plugin Setting
- let g:user_zen_expandabbr_key = '<c-,>' "Zen coding ショートカット
+ let g:user_zen_expandabbr_key = '<c-q>' "Zen coding ショートカット
  let file_name = expand("%") "ナードツリー自動よみこみ
  if has('vim_starting') &&  file_name == ""
    autocmd VimEnter * NERDTree ./
