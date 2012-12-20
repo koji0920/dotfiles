@@ -12,6 +12,7 @@
  if has('vim_starting') &&  file_name == ""
    autocmd VimEnter * NERDTree ./
  endif
+
  "autocomplpop.vim----------
  "<TAB>で補完
  function! InsertTabWrapper()
@@ -42,6 +43,7 @@ Bundle 'The-NERD-tree'
 Bundle 'css3-syntax-plus'
 Bundle 'browsereload-mac.vim'
 Bundle 'open-browser.vim'
+Bundle 'The-NERD-Commenter'
 filetype plugin indent on     " required!
 
  "browser aoutload -----------------------
@@ -63,8 +65,6 @@ vmap <Leader>o <Plug>(openbrowser-open)
 " ググる
 nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 " 編集中ファイルを開く
-nnoremap ,c :!chrome %<CR>
-nnoremap ,bc :silent !start firefox %<CR>
 
  "------------------------------------------------------------
  " 推奨するオプション
@@ -128,8 +128,8 @@ nnoremap ,bc :silent !start firefox %<CR>
  nnoremap <C-L> :nohl<CR><C-L>" <C-L>で検索後の強調表示を解除する
  inoremap jj <Esc>
  noremap ; :
- noremap : ;
-
+ noremap :;
+ map ¥ <leader>
 
  "------------------------------------------------------------
 
