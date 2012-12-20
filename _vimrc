@@ -8,6 +8,17 @@
  "------------------------------------------------------------
  "Plugin Setting
  let g:user_zen_expandabbr_key = '<c-q>' "Zen coding ショートカット
+ " 言語別に対応させる
+let g:user_zen_settings = {
+      \  'lang' : 'ja',
+      \  'html' : {
+      \    'filters' : 'html',
+      \    'indentation' : ' '
+      \  },
+      \  'css' : {
+      \    'filters' : 'fc',
+      \  },
+      \}
  let file_name = expand("%") "ナードツリー自動よみこみ
  if has('vim_starting') &&  file_name == ""
    autocmd VimEnter * NERDTree ./

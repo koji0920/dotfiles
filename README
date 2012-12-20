@@ -2,3 +2,44 @@ koji's vim files
 
 #vim setting download
 git clone git@github.com:koji0920/dotfiles.git
+
+
+☆--- zencoding ---☆
+
+<c-y>,
+ビジュアル選択して<c-y>,
+<c-y>d　カーソル外のタグ全体選択
+<c-y>D　タグ内側選択
+<c-y>n　中身がカラのタグ内側へジャンプ
+<c-y>N　逆回り
+<c-y>i　画像の大きさ取得
+<c-y>k　中身とタグ一緒に削除
+URLの上で <c-y>a　aタグ作ってくれる
+
+
+☆--- NERD comment---☆
+
+Comment    '<leader>cc'
+Toggle     '<leader>c<space>'
+Minimal    '<leader>cm'
+Sexy       '<leader>cs'
+Invert     '<leader>ci'
+Yank       '<leader>cy'
+AlignLeft  '<leader>cl'
+AlignBoth  '<leader>cb'
+Nest       '<leader>cn'
+Uncomment  '<leader>cu'
+ToEOL      '<leader>c$'
+Append     '<leader>cA'
+
+
+☆--- Surround vim---☆
+
+ds〜　「〜」を削除
+dst　 直近のタグ削除
+cst　タグ置換 < 必要
+ys　
+ysst　カレントラインタグ
+ySt　インデント付き
+ySSt　インデントするyss
+st　Vモード選択をタグ
