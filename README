@@ -4,6 +4,15 @@ koji's vim files
 git clone git@github.com:koji0920/dotfiles.git
 
 
+☆--- common ---☆
+
+:%Hankaku
+:%Zenkaku
+
+1.vにてビジュアルモード、jkhlを駆使して範囲指定
+2.:にてコマンド指定するモードに入る
+3.すると自動的に、:’<,’>まで入力されるので、:’<,’>:s/before/after/gする
+
 ☆--- zencoding ---☆
 
 <c-y>,
@@ -43,3 +52,9 @@ ysst　カレントラインタグ
 ySt　インデント付き
 ySSt　インデントするyss
 st　Vモード選択をタグ
+St　Vモード選択をインデントタグ
+
+☆--- OpenBrowser ---☆
+:OpenBrowser %
+
+
