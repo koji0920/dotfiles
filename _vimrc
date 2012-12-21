@@ -139,7 +139,7 @@ nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
  nnoremap <C-L> :nohl<CR><C-L>" <C-L>で検索後の強調表示を解除する
  inoremap jj <Esc>
  noremap ; :
- noremap :;
+ noremap : ;
  map ¥ <leader>
 
  "------------------------------------------------------------
