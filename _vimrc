@@ -76,6 +76,8 @@ vmap <Leader>o <Plug>(openbrowser-open)
 " ググる
 nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 " 編集中ファイルを開く
+let g:openbrowser_open_filepath_in_vim = 0
+let g:openbrowser_open_rules = {'open' : 'open -a Chrome {shellescape(uri)}&'} nnoremap[ :silent OpenBrowser %
 
  "------------------------------------------------------------
  " 推奨するオプション
