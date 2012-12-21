@@ -47,14 +47,13 @@ Append     '<leader>cA'
 ds〜　「〜」を削除
 dst　 直近のタグ削除
 cst　タグ置換 < 必要
-ys　
 ysst　カレントラインタグ
-ySt　インデント付き
 ySSt　インデントするyss
 st　Vモード選択をタグ
 St　Vモード選択をインデントタグ
 
 ☆--- OpenBrowser ---☆
+
 :OpenBrowser %
 
 
