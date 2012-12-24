@@ -19,7 +19,8 @@ let g:user_zen_settings = {
       \    'filters' : 'fc',
       \  },
       \}
- let file_name = expand("%") "ナードツリー自動よみこみ
+ "ナードツリー自動よみこみ
+ let file_name = expand("%")
  if has('vim_starting') &&  file_name == ""
    autocmd VimEnter * NERDTree ./
  endif
