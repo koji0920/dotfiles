@@ -16,12 +16,13 @@ hi Constant       term=underline  ctermfg=Magenta  guifg=#ff7dff
 hi Special        term=bold           ctermfg=Red guifg=#ff4c4c
 hi Identifier  term=underline  cterm=bold   ctermfg=Yellow guifg=#eedd82
 hi Statement  term=bold       ctermfg=LightBlue gui=bold    guifg=#6495ed
+hi Conditional term=bold       ctermfg=LightBlue gui=bold    guifg=#6495ed
 hi PreProc    term=underline  ctermfg=LightBlue  guifg=#6495ed
 hi Type       term=underline  ctermfg=LightGreen guifg=#a1db7a gui=bold
 hi Function   term=bold       ctermfg=White      guifg=#ffffff
 hi Repeat     term=underline  ctermfg=White          guifg=#ffffff
 hi Operator   ctermfg=Red                     guifg=#ff4c4c
-hi Ignore                               ctermfg=black           guifg=bg
+hi Ignore     ctermfg=Red             guifg=#ff4c4c          ctermfg=black           guifg=bg
 hi Error        term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
 hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
 hi LineNr ctermfg=Yellow guifg=#eedd82
@@ -59,3 +60,5 @@ hi link htmlTag Title
 hi link cssClassName Title
 hi link cssIdentifier Title
 hi link cssBraces Title
+hi link JavaScriptValue Statement
+hi link JavaScriptParens Statement

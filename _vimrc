@@ -19,8 +19,7 @@ let g:user_zen_settings = {
       \    'filters' : 'fc',
       \  },
       \}
- "ナードツリー自動よみこみ
- let file_name = expand("%")
+ let file_name = expand("%") "ナードツリー自動よみこみ
  if has('vim_starting') &&  file_name == ""
    autocmd VimEnter * NERDTree ./
  endif
@@ -56,6 +55,8 @@ Bundle 'css3-syntax-plus'
 Bundle 'browsereload-mac.vim'
 Bundle 'open-browser.vim'
 Bundle 'The-NERD-Commenter'
+Bundle 'open-browser.vim'
+Bundle 'jslint.vim'
 filetype plugin indent on     " required!
 
  "browser aoutload -----------------------
@@ -80,8 +81,14 @@ nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 let g:openbrowser_open_filepath_in_vim = 0
 let g:openbrowser_open_rules = {'open' : 'open -a Chrome {shellescape(uri)}&'} nnoremap[ :silent OpenBrowser %
 
+"netrw vim setting
+" netrwは常にtree view
+let g:netrw_liststyle = 3
+let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_altv = 1
+let g:netrw_alto = 1
+
  "------------------------------------------------------------
- " 推奨するオプション
  set hidden " バッファを保存しなくても他のバッファを表示できるようにする
  set wildmenu " コマンドライン補完を便利に
  set showcmd " タイプ途中のコマンドを画面最下行に表示
@@ -118,6 +125,9 @@ let g:openbrowser_open_rules = {'open' : 'open -a Chrome {shellescape(uri)}&'} n
  "分割でファイルを開く位置
  "set splitright
  "set splitbelow
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+
 
  "------------------------------------------------------------
  " インデント関連のオプション"
@@ -146,4 +156,3 @@ let g:openbrowser_open_rules = {'open' : 'open -a Chrome {shellescape(uri)}&'} n
  map ¥ <leader>
 
  "------------------------------------------------------------
-
