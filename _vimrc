@@ -56,7 +56,8 @@ Bundle 'browsereload-mac.vim'
 Bundle 'open-browser.vim'
 Bundle 'The-NERD-Commenter'
 Bundle 'open-browser.vim'
-Bundle 'jslint.vim'
+Bundle 'csslint.vim'
+Bundle 'lint.vim'
 filetype plugin indent on     " required!
 
  "browser aoutload -----------------------
