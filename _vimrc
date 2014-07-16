@@ -57,7 +57,16 @@ Bundle 'open-browser.vim'
 Bundle 'The-NERD-Commenter'
 Bundle 'open-browser.vim'
 Bundle 'csslint.vim'
+<<<<<<< HEAD
 Bundle 'lint.vim'
+=======
+Bundle 'tidy'
+Bundle 'Better-Javascript-Indentation'
+Bundle 'php.vim'
+Bundle 'bling/vim-airline'
+Bundle 'BufOnly.vim'
+"Bundle 'Highlight-UnMatched-Brackets'
+>>>>>>> add vim
 filetype plugin indent on     " required!
 
  "browser aoutload -----------------------
@@ -88,6 +97,37 @@ let g:netrw_liststyle = 3
 let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_altv = 1
 let g:netrw_alto = 1
+<<<<<<< HEAD
+=======
+
+"tidy html
+autocmd FileType html :compiler tidy
+autocmd FileType html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
+
+"Javascript dictionary
+autocmd FileType java :set dictionary=j2se14.dict<CR>
+
+"php doc
+inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-D> :call PhpDocSingle()<CR>
+vnoremap <C-D> :call PhpDocRange()<CR>
+
+"php book
+autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
+
+"air line
+let g:airline_enable_branch = 0
+let g:airline_section_b = "%t %M"
+let g:airline_section_c = ''
+let s:sep = " %{get(g:, 'airline_right_alt_sep', '')} "
+let g:airline_section_x =
+      \ "%{strlen(&fileformat)?&fileformat:''}".s:sep.
+      \ "%{strlen(&fenc)?&fenc:&enc}".s:sep.
+      \ "%{strlen(&filetype)?&filetype:'no ft'}"
+let g:airline_section_y = '%3p%%'
+let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
+let g:airline#extensions#whitespace#enabled = 0
+>>>>>>> add vim
 
  "------------------------------------------------------------
  set hidden " バッファを保存しなくても他のバッファを表示できるようにする
@@ -123,37 +163,115 @@ let g:netrw_alto = 1
  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
  autocmd BufWritePre * :%s/\s\+$//ge " 保存時に行末の空白を除去する
  set nobackup "バックアップを作らいない
+ set noundofile
  "分割でファイルを開く位置
  "set splitright
  "set splitbelow
+<<<<<<< HEAD
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
+=======
+ set encoding=utf-8
+ "set fileencodings=utf-8
+ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+ autocmd QuickFixCmdPost *grep* cwindow
+ "set foldmethod=syntax
+ let perl_fold=1
+ set foldlevel=100 "Don't autofold anything
+
+ autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+ autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+
+ " ペーストするときにインデントさせない
+imap <F5> <nop>
+set pastetoggle=<F5>
+>>>>>>> add vim
 
  "------------------------------------------------------------
  " インデント関連のオプション"
- " タブ文字の代わりにスペース2個を使う場合の設定。
- " この場合、'tabstop'はデフォルトの8から変えない。
+
+ " インデントを変更した時何文字分ずらすか設定
  set shiftwidth=2
- set softtabstop=2
- set expandtab
- " インデントにハードタブを使う場合の設定。
- " タブ文字を2文字分の幅で表示する。
- "set shiftwidth=2
- "set tabstop=2
+
+ " 文字数分空白を入力したり削除したりする
+ " set softtabstop=2
+
+ " インデントにスペースを使うとき
+ " set expandtab
+
+ " tabをおした時の表示する文字数。
+ set tabstop=2
  set list
- set listchars=tab:»»,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+ set listchars=trail:-,eol:↲,extends:»,precedes:«,nbsp:%,tab:»-
  " visual モードで連続して、インデント出来るように設定
  vnoremap <silent> > >gv
  vnoremap <silent> < <gv
+" 行末の空白文字を可視化
+highlight WhitespaceEOL cterm=underline ctermbg=red guibg=#FF0000
+au BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", ' +$')
+au WinEnter * let w:m1 = matchadd("WhitespaceEOL", ' +$')
+
+" 全角スペース・行末のスペース・タブの可視化
+if has("syntax")
+    syntax on
+
+    " PODバグ対策
+    syn sync fromstart
+
+    function! ActivateInvisibleIndicator()
+        " 下の行の"　"は全角スペース
+        syntax match InvisibleJISX0208Space "　" display containedin=ALL
+        highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
+        "syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
+        "highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
+        "syntax match InvisibleTab "\t" display containedin=ALL
+        "highlight InvisibleTab term=underline ctermbg=white gui=undercurl guisp=darkslategray
+    endfunction
+
+    augroup invisible
+        autocmd! invisible
+        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
+    augroup END
+endif
 
  "------------------------------------------------------------
  " マッピング
- map Y y$ " Yの動作をDやCと同じにする
- nnoremap <C-L> :nohl<CR><C-L>" <C-L>で検索後の強調表示を解除する
+ " Yの動作をDやCと同じにする
+ map Y y$
+ " <C-L>で検索後の強調表示を解除する
+ nnoremap <C-L> :nohl<CR><C-L>
  inoremap jj <Esc>
  noremap ; :
  noremap : ;
  map ¥ <leader>
+ map! <C-e> <Esc>$a
+ map! <C-a> <Esc>^a
+ map <C-e> <Esc>$a
+ map <C-a> <Esc>^a
+ "Quickfix
+ nnoremap [q :cprevious<CR>   " 前へ
+ nnoremap ]q :cnext<CR>       " 次へ
+ nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+ nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 
+<<<<<<< HEAD
+=======
+ vmap u <Nop>
+ vmap U <Nop>
+ vmap ~ <Nop>
+ nnoremap gg <Nop>
+
+ inoremap { {}<LEFT>
+ inoremap [ []<LEFT>
+ inoremap ( ()<LEFT>
+ inoremap " ""<LEFT>
+ inoremap ' ''<LEFT>
+ vnoremap { "zdi^V{<C-R>z}<ESC>
+ vnoremap [ "zdi^V[<C-R>z]<ESC>
+ vnoremap ( "zdi^V(<C-R>z)<ESC>
+ vnoremap " "zdi^V"<C-R>z^V"<ESC>
+ vnoremap ' "zdi'<C-R>z'<ESC>
+
+>>>>>>> add vim
  "------------------------------------------------------------
