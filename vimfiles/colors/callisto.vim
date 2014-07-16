@@ -32,6 +32,10 @@ hi Visual guifg=#666666 guibg=#cecece ctermfg=Gray ctermbg=Black term=underline
 hi Title ctermfg=White guifg=#ffffff
 hi Search guibg=#6495ed guifg=#ffffff ctermbg=LightBlue ctermfg=White
 hi Function guifg=#74a7ce ctermfg=LightBlue
+<<<<<<< HEAD
+=======
+hi SpecialKey term=underline ctermfg=darkgray guifg=Cyan guifg=#444444
+>>>>>>> add vim
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.
@@ -51,14 +55,28 @@ hi link PreCondit       PreProc
 hi link StorageClass    Type
 hi link Structure       Type
 hi link Typedef Type
+<<<<<<< HEAD
 hi link Tag             Special
 hi link SpecialChar     Special
 hi link Delimiter       Special
 hi link SpecialComment Special
 hi link Debug           Special
+=======
+hi link Tag             Statement
+hi link SpecialChar     Statement
+hi link Delimiter       Statement
+hi link SpecialComment Statement
+hi link Debug           Statement
+>>>>>>> add vim
 hi link htmlTag Title
 hi link cssClassName Title
 hi link cssIdentifier Title
 hi link cssBraces Title
 hi link JavaScriptValue Statement
 hi link JavaScriptParens Statement
+<<<<<<< HEAD
+=======
+hi link javaScriptFuncName Statement
+"hi link javaScriptFuncBlock Statement
+hi link javaScriptOpAssign Statement
+>>>>>>> add vim

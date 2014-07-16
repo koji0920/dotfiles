@@ -1,9 +1,17 @@
 if has('gui_macvim')
   set background=dark "背景色：黒
   set transparency=17 "背景透明度
+<<<<<<< HEAD
   set lines=200 columns=250 "表示サイズ
   set guioptions-=T
   set guifont=Monaco:h10.7 " フォント
+=======
+  set lines=200 columns=270 "表示サイズ
+  set guioptions-=T
+  set guifont=Monaco:h10.7 " フォント
+  "set guifont=Ricty:h14
+  "set linespace=1
+>>>>>>> add vim
   set mouse=a "全モードマウス使用可能
   set imdisable      // IMを無効化
 endif
